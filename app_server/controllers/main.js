@@ -1,5 +1,4 @@
 // app_server/controllers/main.js
-// KEEP IT SIMPLE - no arrays, no database, no complex logic
 
 // Home page controller
 exports.home = function(req, res) {

@@ -1,11 +1,12 @@
 var express = require('express');
 var router = express.Router();
-var ctrlMain = require('../controllers/main');  // ← ADD THIS
+var ctrlMain = require('../controllers/main');
+var ctrlTravel = require('../controllers/travel');  
 
 /* GET home page. */
-router.get('/', ctrlMain.home);  // ← CHANGE THIS
+router.get('/', ctrlMain.home);
 
 /* GET travel page. */
-router.get('/travel', ctrlMain.travel);  // ← CHANGE THIS
+router.get('/travel', ctrlTravel.travel);  // CHANGE THIS to use ctrlTravel
 
 module.exports = router;
