@@ -1,0 +1,32 @@
+[
+  {
+    "code": "GALR210214",
+    "name": "Gale Reef",
+    "length": "4 nights / 5 days",
+    "start": "2023-02-14",
+    "resort": "Emerald Bay",
+    "perPerson": "799.00",
+    "image": "reef1.jpg",
+    "description": "<p>Gale Reef Sed et augue lorem. In sit amet placerat arcu. Mauris volutpat ipsum ac justo mollis vel vestibulum orci gravida. Vestibulum sit amet porttitor odio. Nulla facilisi. Nulla vitae nibh rhoncus, mattis massa non, fringilla elit.</p> <p>Sed dui lectus, lobortis sed tristique eget, tristique sit amet mauris. Praesent lectus tellus, sodales at enim vel, fringilla ornare sapien. Donec vehicula nunc vel modi est consequat, a faucibus metus aliquam. Fusce vulputate aliquam enim at consequat.</p> <p>In nec metus massa. Vivamus luctus luctus eros, id consectetur sapien aliquet et. Ut eget eros metus. Mauris sem ipsum, tristique id fermentum id, porttitor id nisl.</p>"
+  },
+  {
+    "code": "DAWR210315",
+    "name": "Dawson's Reef",
+    "length": "4 nights / 5 days",
+    "start": "2023-03-15",
+    "resort": "Blue Lagoon",
+    "perPerson": "899.00",
+    "image": "reef2.jpg",
+    "description": "<p>Dawson's Reef Sed et augue lorem. In sit amet placerat arcu. Mauris volutpat ipsum ac justo mollis vel vestibulum orci gravida. Vestibulum sit amet porttitor odio. Nulla facilisi. Nulla vitae nibh rhoncus, mattis massa non, fringilla elit.</p> <p>Sed dui lectus, lobortis sed tristique eget, tristique sit amet mauris. Praesent lectus tellus, sodales at enim vel, fringilla ornare sapien. Donec vehicula nunc vel modi est consequat, a faucibus metus aliquam. Fusce vulputate aliquam enim at consequat.</p> <p>In nec metus massa. Vivamus luctus luctus eros, id consectetur sapien aliquet et. Ut eget eros metus. Mauris sem ipsum, tristique id fermentum id, porttitor id nisl.</p>"
+  },
+  {
+    "code": "CLAR210621",
+    "name": "Claire's Reef",
+    "length": "4 nights / 5 days",
+    "start": "2023-06-21",
+    "resort": "Coral Cove",
+    "perPerson": "899.00",
+    "image": "reef3.jpg",
+    "description": "<p>Claire's Reef Sed et augue lorem. In sit amet placerat arcu. Mauris volutpat ipsum ac justo mollis vel vestibulum orci gravida. Vestibulum sit amet porttitor odio. Nulla facilisi. Nulla vitae nibh rhoncus, mattis massa non, fringilla elit.</p> <p>Sed dui lectus, lobortis sed tristique eget, tristique sit amet mauris. Praesent lectus tellus, sodales at enim vel, fringilla ornare sapien. Donec vehicula nunc vel modi est consequat, a faucibus metus aliquam. Fusce vulputate aliquam enim at consequat.</p> <p>In nec metus massa. Vivamus luctus luctus eros, id consectetur sapien aliquet et. Ut eget eros metus. Mauris sem ipsum, tristique id fermentum id, porttitor id nisl.</p>"
+  }
+]

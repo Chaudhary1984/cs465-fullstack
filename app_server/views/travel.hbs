@@ -1,0 +1,17 @@
+<h1>Travel Packages</h1>
+<p>Browse our available travel packages.</p>
+
+<div class="row">
+    {{#each trips}}
+    <div class="col-md-4 col-sm-6">
+        <div class="card">
+            <img src="/images/{{this.image}}" class="card-img-top" alt="{{this.name}}">
+            <div class="card-body">
+                <h5 class="card-title">{{this.name}}</h5>
+                <p class="card-text">{{{this.description}}}</p>
+                <a href="/travel" class="btn btn-primary">View details</a>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
