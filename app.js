@@ -3,6 +3,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+
+// Database connection
+require('./app_server/models/db');
 var hbs = require('hbs');  // ← ADD THIS LINE (1)
 
 var app = express();
