@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Trip = require("./travlr");
+const Trip = require("./trips");
 const tripsData = require("../../data/trips.json");
 
 const host = process.env.DB_HOST || "127.0.0.1";

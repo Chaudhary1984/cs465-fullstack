@@ -5,16 +5,18 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 // Database connection
-require('./app_server/models/db');
-var hbs = require('hbs');  // ← ADD THIS LINE (1)
+require('./app_api/models/db');  // ← CHANGED PATH
+var apiRouter = require('./app_api/routes/index');  // ← ADDED
+
+var hbs = require('hbs');
 
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'app_server/views'));  // ← CHANGE THIS (2)
-app.set('view engine', 'hbs');  // ← CHANGE THIS (3)
+app.set('views', path.join(__dirname, 'app_server/views'));
+app.set('view engine', 'hbs');
 
-// Register partials - ADD THIS (4) - VERY IMPORTANT FOR GRADING
+// Register partials
 hbs.registerPartials(path.join(__dirname, 'app_server/views/partials'));
 
 app.use(logger('dev'));
@@ -23,9 +25,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// UPDATE these lines to use app_server routes (5)
+// Routes
 app.use('/', require('./app_server/routes/index'));
 app.use('/users', require('./app_server/routes/users'));
+app.use('/api', apiRouter);  // ← ADDED
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
