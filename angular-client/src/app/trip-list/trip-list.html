@@ -1,0 +1,21 @@
+<div>
+  <h1 class="mb-4">Trip Management</h1>
+  
+  <div *ngIf="loading" class="text-center py-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading trips...</span>
+    </div>
+  </div>
+  
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+  
+  <div *ngIf="!loading && trips.length === 0" class="alert alert-info">
+    No trips found. Click "+ Add New Trip" to create one.
+  </div>
+  
+  <div class="row g-4">
+    <div class="col-md-4 col-sm-6" *ngFor="let trip of trips">
+      <app-trip-card [trip]="trip" (delete)="deleteTrip(trip.code)"></app-trip-card>
+    </div>
+  </div>
+</div>

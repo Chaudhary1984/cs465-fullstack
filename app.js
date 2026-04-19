@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+var cors = require('cors');  // ADD THIS LINE
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -11,6 +12,9 @@ var apiRouter = require('./app_api/routes/index');  // ← ADDED
 var hbs = require('hbs');
 
 var app = express();
+
+// ADD THIS LINE - Enable CORS
+app.use(cors());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server/views'));

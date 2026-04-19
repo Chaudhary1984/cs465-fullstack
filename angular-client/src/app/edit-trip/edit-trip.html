@@ -1,0 +1,60 @@
+<div class="container mt-4">
+  <h1>Edit Trip</h1>
+  
+  <!-- Simple loading text instead of spinner -->
+  <div *ngIf="loading" style="text-align: center; padding: 50px;">
+    <h3>Loading trip data...</h3>
+    <p>Please wait</p>
+  </div>
+  
+  <div *ngIf="error" class="alert alert-danger">
+    {{ error }}
+  </div>
+  
+  <form (ngSubmit)="onSubmit()" *ngIf="!loading && !error" style="display: flex; flex-direction: column; gap: 15px;">
+    <div>
+      <label style="display: block; font-weight: bold;">Trip Code:</label>
+      <input type="text" class="form-control" [(ngModel)]="trip.code" name="code" disabled style="width: 100%; padding: 8px;">
+    </div>
+    
+    <div>
+      <label style="display: block; font-weight: bold;">Trip Name *:</label>
+      <input type="text" class="form-control" [(ngModel)]="trip.name" name="name" required style="width: 100%; padding: 8px;">
+    </div>
+    
+    <div>
+      <label style="display: block; font-weight: bold;">Resort:</label>
+      <input type="text" class="form-control" [(ngModel)]="trip.resort" name="resort" style="width: 100%; padding: 8px;">
+    </div>
+    
+    <div>
+      <label style="display: block; font-weight: bold;">Price per Person:</label>
+      <input type="text" class="form-control" [(ngModel)]="trip.perPerson" name="perPerson" style="width: 100%; padding: 8px;">
+    </div>
+    
+    <div>
+      <label style="display: block; font-weight: bold;">Length:</label>
+      <input type="text" class="form-control" [(ngModel)]="trip.length" name="length" style="width: 100%; padding: 8px;">
+    </div>
+    
+    <div>
+      <label style="display: block; font-weight: bold;">Start Date:</label>
+      <input type="date" class="form-control" [(ngModel)]="trip.start" name="start" style="width: 100%; padding: 8px;">
+    </div>
+    
+    <div>
+      <label style="display: block; font-weight: bold;">Image Filename:</label>
+      <input type="text" class="form-control" [(ngModel)]="trip.image" name="image" style="width: 100%; padding: 8px;">
+    </div>
+    
+    <div>
+      <label style="display: block; font-weight: bold;">Description:</label>
+      <textarea class="form-control" [(ngModel)]="trip.description" name="description" rows="5" style="width: 100%; padding: 8px;"></textarea>
+    </div>
+    
+    <div style="display: flex; gap: 10px;">
+      <button type="submit" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">Save Changes</button>
+      <a routerLink="/" style="padding: 10px 20px; background-color: #6c757d; color: white; text-decoration: none; border-radius: 5px;">Cancel</a>
+    </div>
+  </form>
+</div>

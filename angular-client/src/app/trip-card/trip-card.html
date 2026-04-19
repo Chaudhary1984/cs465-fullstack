@@ -1,0 +1,14 @@
+<div class="card h-100">
+  <img src="http://localhost:3000/images/{{ trip.image }}" class="card-img-top" alt="{{ trip.name }}" style="height: 200px; object-fit: cover; width: 100%;">
+  <div class="card-body">
+    <h5 class="card-title">{{ trip.name }}</h5>
+    <p class="card-text"><strong>Resort:</strong> {{ trip.resort }}</p>
+    <p class="card-text"><strong>Length:</strong> {{ trip.length }}</p>
+    <p class="card-text"><strong>Price:</strong> ${{ trip.perPerson }} per person</p>
+    <p class="card-text">{{ trip.description | stripHtml | slice:0:150 }}...</p>
+    <div class="mt-3">
+      <a [routerLink]="['/edit', trip.code]" class="btn btn-warning btn-sm me-2">Edit</a>
+      <button (click)="deleteTrip()" class="btn btn-danger btn-sm">Delete</button>
+    </div>
+  </div>
+</div>
