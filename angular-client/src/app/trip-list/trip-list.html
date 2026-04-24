@@ -1,17 +1,16 @@
 <div>
-  <h1 class="mb-4">Trip Management</h1>
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Trip Management</h1>
+    <button *ngIf="isLoggedIn()" class="btn btn-success" routerLink="/add">+ Add New Trip</button>
+  </div>
   
   <div *ngIf="loading" class="text-center py-5">
-    <div class="spinner-border text-primary" role="status">
-      <span class="visually-hidden">Loading trips...</span>
-    </div>
+    <div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>
   </div>
   
   <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
   
-  <div *ngIf="!loading && trips.length === 0" class="alert alert-info">
-    No trips found. Click "+ Add New Trip" to create one.
-  </div>
+  <div *ngIf="!loading && trips.length === 0" class="alert alert-info">No trips found.</div>
   
   <div class="row g-4">
     <div class="col-md-4 col-sm-6" *ngFor="let trip of trips">

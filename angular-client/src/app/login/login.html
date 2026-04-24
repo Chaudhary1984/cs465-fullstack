@@ -1,0 +1,24 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h2 class="text-center mb-4">Login</h2>
+      <div *ngIf="formError" class="alert alert-danger">{{ formError }}</div>
+      <form (ngSubmit)="onLoginSubmit()">
+        <div class="mb-3">
+          <label class="form-label">Name</label>
+          <input type="text" class="form-control" [(ngModel)]="credentials.name" name="name" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" [(ngModel)]="credentials.email" name="email" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-control" [(ngModel)]="credentials.password" name="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Sign In!</button>
+        <a routerLink="/" class="btn btn-secondary w-100 mt-2">Cancel</a>
+      </form>
+    </div>
+  </div>
+</div>

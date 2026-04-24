@@ -1,26 +1,31 @@
 var createError = require('http-errors');
 var express = require('express');
-var cors = require('cors');  // ADD THIS LINE
+var cors = require('cors');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var passport = require('passport');
+require('dotenv').config();
 
-// Database connection
-require('./app_api/models/db');  // ← CHANGED PATH
-var apiRouter = require('./app_api/routes/index');  // ← ADDED
+require('./app_api/models/db');
+require('./app_api/config/passport');
+var apiRouter = require('./app_api/routes/index');
 
 var hbs = require('hbs');
 
 var app = express();
 
-// ADD THIS LINE - Enable CORS
 app.use(cors());
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  next();
+});
 
-// view engine setup
 app.set('views', path.join(__dirname, 'app_server/views'));
 app.set('view engine', 'hbs');
 
-// Register partials
 hbs.registerPartials(path.join(__dirname, 'app_server/views/partials'));
 
 app.use(logger('dev'));
@@ -28,18 +33,22 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(passport.initialize());
 
-// Routes
 app.use('/', require('./app_server/routes/index'));
 app.use('/users', require('./app_server/routes/users'));
-app.use('/api', apiRouter);  // ← ADDED
+app.use('/api', apiRouter);
 
-// catch 404 and forward to error handler
+app.use(function(err, req, res, next) {
+  if (err.name === 'UnauthorizedError') {
+    res.status(401).json({ message: err.name + ': ' + err.message });
+  }
+});
+
 app.use(function(req, res, next) {
   next(createError(404));
 });
 
-// error handler
 app.use(function(err, req, res, next) {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

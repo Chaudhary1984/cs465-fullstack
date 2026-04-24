@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Trip } from '../trip.service';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-trip-card',
@@ -11,7 +12,9 @@ export class TripCardComponent {
   @Input() trip!: Trip;
   @Output() delete = new EventEmitter<string>();
 
-  deleteTrip() {
-    this.delete.emit(this.trip.code);
-  }
+  constructor(private authService: AuthenticationService) {}
+
+  isLoggedIn(): boolean { return this.authService.isLoggedIn(); }
+
+  deleteTrip() { this.delete.emit(this.trip.code); }
 }

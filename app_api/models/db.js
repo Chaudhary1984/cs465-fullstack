@@ -3,13 +3,14 @@ const host = process.env.DB_HOST || "127.0.0.1";
 const dbURI = `mongodb://${host}/travlr`;
 const readLine = require("readline");
 
-const connect = () => {
-    setTimeout(() => mongoose.connect(dbURI), 1000);
+const connect = async () => {
+    try {
+        await mongoose.connect(dbURI);
+        console.log(`Mongoose connected to ${dbURI}`);
+    } catch (err) {
+        console.log("Mongoose connection error: ", err);
+    }
 }
-
-mongoose.connection.on("connected", () => {
-    console.log(`Mongoose connected to ${dbURI}`);
-});
 
 mongoose.connection.on("error", err => {
     console.log("Mongoose connection error: ", err);
@@ -52,5 +53,6 @@ process.on("SIGTERM", () => {
 
 connect();
 require("./trips");
+require("./user");
 
 module.exports = mongoose;
