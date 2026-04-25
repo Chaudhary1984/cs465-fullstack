@@ -1,0 +1,24 @@
+<div class="container mt-4">
+  <h1 class="mb-4">Shopping Cart</h1>
+  
+  <div *ngIf="cartItems.length === 0" class="alert alert-info">
+    Your cart is empty. <a routerLink="/">Browse Trips</a>
+  </div>
+  
+  <div *ngIf="cartItems.length > 0">
+    <table class="table">
+      <thead><tr><th>Item</th><th>Quantity</th><th>Price</th><th>Total</th></tr></thead>
+      <tbody>
+        <tr *ngFor="let item of cartItems">
+          <td>{{ item.name }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>${{ item.price }}</td>
+          <td>${{ item.price * item.quantity }}</td>
+        </tr>
+        <tr class="table-active"><td colspan="3" class="text-end"><strong>Grand Total:</strong></td><td><strong>${{ getTotal() }}</strong></td></tr>
+      </tbody>
+    </table>
+    <button class="btn btn-success" (click)="onCheckout()">Proceed to Checkout</button>
+    <a routerLink="/" class="btn btn-secondary ms-2">Continue Shopping</a>
+  </div>
+</div>

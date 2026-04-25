@@ -10,15 +10,26 @@ import { TripCardComponent } from './trip-card/trip-card';
 import { AddTripComponent } from './add-trip/add-trip';
 import { EditTripComponent } from './edit-trip/edit-trip';
 import { LoginComponent } from './login/login';
+import { RegisterComponent } from './register/register';
 import { NavbarComponent } from './navbar/navbar';
+import { NewsComponent } from './news/news';
+import { ReservationsComponent } from './reservations/reservations';
+import { CheckoutComponent } from './checkout/checkout';
+import { AdminComponent } from './admin/admin';
 import { StripHtmlPipe } from './strip-html.pipe';
 import { JwtInterceptor } from './jwt.interceptor';
 
 const routes: Routes = [
   { path: '', component: TripListComponent },
+  { path: 'travel', component: TripListComponent },
   { path: 'add', component: AddTripComponent },
   { path: 'edit/:code', component: EditTripComponent },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'news', component: NewsComponent },
+  { path: 'reservations', component: ReservationsComponent },
+  { path: 'checkout', component: CheckoutComponent },
+  { path: 'admin', component: AdminComponent }
 ];
 
 @NgModule({
@@ -29,7 +40,12 @@ const routes: Routes = [
     AddTripComponent,
     EditTripComponent,
     LoginComponent,
+    RegisterComponent,
     NavbarComponent,
+    NewsComponent,
+    ReservationsComponent,
+    CheckoutComponent,
+    AdminComponent,
     StripHtmlPipe
   ],
   imports: [

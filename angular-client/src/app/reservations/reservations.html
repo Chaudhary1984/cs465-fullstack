@@ -1,0 +1,23 @@
+<div class="container mt-4">
+  <h1 class="mb-4">My Reservations</h1>
+  
+  <div *ngIf="reservations.length === 0" class="alert alert-info">
+    You have no reservations yet. <a routerLink="/">Browse Trips</a>
+  </div>
+  
+  <table class="table table-striped" *ngIf="reservations.length > 0">
+    <thead>
+      <tr><th>Reservation ID</th><th>Destination</th><th>Travel Date</th><th>Status</th><th>Price</th><th>Action</th></tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let res of reservations">
+        <td>{{ res.id }}</td>
+        <td>{{ res.destination }}</td>
+        <td>{{ res.date }}</td>
+        <td><span class="badge" [ngClass]="{'bg-success': res.status === 'Confirmed', 'bg-warning': res.status === 'Pending'}">{{ res.status }}</span></td>
+        <td>{{ res.price }}</td>
+        <td><button class="btn btn-sm btn-danger">Cancel</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

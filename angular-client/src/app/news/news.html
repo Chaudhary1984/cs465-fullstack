@@ -1,0 +1,25 @@
+<div class="container mt-4">
+  <h1 class="mb-4">Travel News & Updates</h1>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="list-group">
+        <div class="list-group-item" *ngFor="let item of newsItems">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{ item.title }}</h5>
+            <small>{{ item.date }}</small>
+          </div>
+          <p class="mb-1">{{ item.description }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Subscribe to Updates</h5>
+          <input type="email" class="form-control mb-2" placeholder="Your email">
+          <button class="btn btn-primary w-100">Subscribe</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

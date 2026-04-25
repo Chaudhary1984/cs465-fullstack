@@ -1,0 +1,67 @@
+<div class="container-fluid mt-4">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-3 col-lg-2 bg-light sidebar">
+      <div class="list-group">
+        <div class="list-group-item" [class.active]="selectedTab === 'myproject'" (click)="selectTab('myproject')">
+          📧 My Project
+        </div>
+        <div class="list-group-item" [class.active]="selectedTab === 'travel'" (click)="selectTab('travel')">
+          ✈️ Travel
+        </div>
+        <div class="list-group-item" [class.active]="selectedTab === 'reservations'" (click)="selectTab('reservations')">
+          📅 Reservations
+        </div>
+        <div class="list-group-item" [class.active]="selectedTab === 'users'" (click)="selectTab('users')">
+          👥 Users
+        </div>
+        <div class="list-group-item" [class.active]="selectedTab === 'settings'" (click)="selectTab('settings')">
+          ⚙️ Settings
+        </div>
+      </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="col-md-9 col-lg-10">
+      <!-- Travel Management Tab -->
+      <div *ngIf="selectedTab === 'travel'">
+        <h2>Group Name: {{ editMode ? 'Edit Trip' : 'Add New Trip' }}</h2>
+        
+        <form (ngSubmit)="onSubmit()" class="card p-4 mb-4">
+          <div class="row">
+            <div class="col-md-6 mb-3"><label>ID (Code):</label><input type="text" class="form-control" [(ngModel)]="newTrip.code" name="code" required></div>
+            <div class="col-md-6 mb-3"><label>Destination (Name):</label><input type="text" class="form-control" [(ngModel)]="newTrip.name" name="name" required></div>
+            <div class="col-md-4 mb-3"><label>Length of Stay:</label><input type="text" class="form-control" [(ngModel)]="newTrip.length" name="length" placeholder="e.g., 4 nights / 5 days"></div>
+            <div class="col-md-4 mb-3"><label>Start Date:</label><input type="date" class="form-control" [(ngModel)]="newTrip.start" name="start"></div>
+            <div class="col-md-4 mb-3"><label>Resort:</label><input type="text" class="form-control" [(ngModel)]="newTrip.resort" name="resort"></div>
+            <div class="col-md-4 mb-3"><label>Per Person:</label><input type="text" class="form-control" [(ngModel)]="newTrip.perPerson" name="perPerson"></div>
+            <div class="col-md-8 mb-3"><label>Image Filename:</label><input type="text" class="form-control" [(ngModel)]="newTrip.image" name="image"></div>
+            <div class="col-12 mb-3"><label>Description:</label><textarea class="form-control" rows="3" [(ngModel)]="newTrip.description" name="description"></textarea></div>
+            <div class="col-12"><button type="submit" class="btn btn-primary">{{ editMode ? 'Update Trip' : 'Add Trip' }}</button>
+              <button *ngIf="editMode" type="button" class="btn btn-secondary ms-2" (click)="resetForm()">Cancel Edit</button>
+            </div>
+          </div>
+        </form>
+        
+        <h3>Existing Trips</h3>
+        <table class="table table-striped">
+          <thead><tr><th>ID</th><th>Name</th><th>Length</th><th>Start</th><th>Resort</th><th>Per Person</th><th>Actions</th></tr></thead>
+          <tbody>
+            <tr *ngFor="let trip of trips">
+              <td>{{ trip.code }}</td><td>{{ trip.name }}</td><td>{{ trip.length }}</td><td>{{ trip.start | date:'shortDate' }}</td>
+              <td>{{ trip.resort }}</td><td>${{ trip.perPerson }}</td>
+              <td><button class="btn btn-warning btn-sm me-1" (click)="editTrip(trip)">Edit</button>
+                  <button class="btn btn-danger btn-sm" (click)="deleteTrip(trip.code)">X</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <!-- Other Tabs Placeholder -->
+      <div *ngIf="selectedTab === 'myproject'"><h2>My Project</h2><p>Project overview and statistics.</p></div>
+      <div *ngIf="selectedTab === 'reservations'"><h2>Reservations</h2><p>View and manage customer reservations.</p></div>
+      <div *ngIf="selectedTab === 'users'"><h2>Users</h2><p>Manage user accounts.</p></div>
+      <div *ngIf="selectedTab === 'settings'"><h2>Settings</h2><p>Application settings.</p></div>
+    </div>
+  </div>
+</div>
