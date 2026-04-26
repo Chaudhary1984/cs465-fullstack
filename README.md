@@ -3,6 +3,9 @@
 Travlr Getaways – Full Stack Web Application
 This project is a complete full stack travel booking web application built using the MEAN stack (MongoDB, Express, Angular, Node.js). The application serves two different types of users: customers and administrators. Customers interact with a server-rendered website built with Express and Handlebars templates, while administrators manage trips, users, and reservations through an Angular single-page application (SPA). Both interfaces communicate with the same RESTful API and MongoDB database, secured with JSON Web Token (JWT) authentication.
 
+
+<img width="1197" height="1351" alt="image" src="https://github.com/user-attachments/assets/f6f5c51f-1746-4f83-a92e-722c5be692e1" />
+
 # Architecture
 In this project, I used two different types of frontend development: a traditional server-rendered Express website using Handlebars (HBS) templates and a modern Angular single-page application (SPA).
 
