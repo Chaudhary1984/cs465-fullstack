@@ -25,5 +25,7 @@ Testing the API required verifying that each HTTP method worked correctly with t
 . POST requests to add new trips
 . PUT requests to update existing trips
 . DELETE requests to remove trips
+
 After implementing JWT authentication, testing became more complex because protected endpoints required a valid token. I verified that users could not add, update, or delete trips without logging in through the Angular application. The Angular JWT interceptor automatically attaches the token to requests, allowing secure communication with the API.
+
 By testing both the Express customer site and the Angular admin site, I confirmed that the full stack integration worked correctly from frontend to backend to database.
